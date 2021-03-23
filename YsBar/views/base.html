@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Y's Bar Menu</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="static/siema.min.js"></script>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        .resizeimg img { 
+            width: 70%;
+            max-width: 550px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="sticky-top my-3">
+        <div style="text-align: center;">
+            <div class="btn-group btn-group-lg">
+                <button class="top btn btn-primary" onclick="location.href='index.html'">トップ</button>
+                <button class="menu btn btn-primary" onclick="location.href='base.html'">ベース</button>
+                <button class="favo btn btn-primary" onclick="location.href=''">お気に入り</button>
+            </div>
+        </div>
+    </header>
+    <div class="container border border-warning">
+        <div class="siema"style="text-align:center">
+            <div class="card bg-dark mx-2">
+                <p class="resizeimg">
+                    <a href="gin.html"><img class="card-img-top p-2" src="images/gin/GIN.jpg" alt="GIN"></a>
+                </p>
+                <div class="card-body">
+                    <h3 class="card-title" style="border-bottom:3px double gold">GIN</h3>
+                </div>
+            </div>
+            <div class="card bg-dark mx-2">
+                <p class="resizeimg">
+                    <a href="vodka.html"><img class="card-img-top p-2" src="images/vodka/VODKA.jpg" alt="VODKA"></a>
+                </p>
+                <div class="card-body">
+                    <h3 class="card-title" style="border-bottom:3px double gold">VODKA</h3>
+                </div>
+            </div>
+            <div class="card bg-dark mx-2">
+                <p class="resizeimg">
+                    <a href="rum.html"><img class="card-img-top p-2" src="images/rum/RUM.jpg" alt="RUM"></a>
+                </p>
+                <div class="card-body">
+                    <h3 class="card-title" style="border-bottom:3px double gold">RUM</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const mySiema = new Siema({
+            easing:'ease-out',
+            loop:true,
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<%- include('./_head',{title:title}) %>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io();
+    var message = document.getElementById('message'); 
+</script>
+<body style="padding-top:4.5rem;">
+    <%- include('./_header') %>
+    <div class="container border border-warning">
+        <% for (var i = 0; i < menu_list.length; i++) { %>
+            <% var checker = i%3;
+                var name = menu_list[i]["name"];
+                if(checker == 0){ %> <div class="row"> <% } %>
+                    <div class="col-lg-4 my-1">
+                    <div class="card bg-dark">
+                        <p class="resizeimg" style="text-align: center;">
+                            <img class="card-img-top p-2" style="object-fit: cover;width: 100%; height: 350px;"
+                                src= <%=menu_list[i]["img"]%> alt= <%=menu_list[i]["name"]%> >
+                        </p>
+                        <div class="card-body">
+                            <h3 class="card-title" style="text-align: center;"><%= menu_list[i]["name"] %></h3>
+                            <table class="table table-borderless table-dark">
+                                <tbody>
+                                    <% for (var j = 0; j < menu_list[i]["recipe"].length; j++) { %>
+                                        <tr>
+                                            <th><%= menu_list[i]["recipe"][j]["name"] %></th>
+                                            <th><%= menu_list[i]["recipe"][j]["amount"] %></th>
+                                        </tr>
+                                    <% }; %>
+                                </tbody>
+                            </table>
+                            <div style="text-align: center;">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" onclick="socket.emit('message','<%=menu_list[i]['name']%>');">注文</button>
+                                    <button class="btn btn-success">お気に入り</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            <% if(checker == 2){ %> </div> <% } %>
+        <% }; %>
+    </div>
+</body>
+</html>

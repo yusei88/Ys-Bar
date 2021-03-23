@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+<%- include('./_head',{title:title}) %>
+<body style="padding-top:4.5rem;">
+    <%- include('./_header') %>
+    <div class="container border border-warning">
+        <div class="siema"style="text-align:center">
+            <% for (var i = 0; i < base_list.length; i++) { %>
+                <div class="card bg-dark mx-2">
+                    <div class="card-body">
+                        <h3 class="card-title" style="border-bottom:3px double gold"><%=base_list[i]["name"]%></h3>
+                    </div>
+                    <p class="resizeimg">
+                        <a href=<%=base_list[i]["url"]%>>
+                            <img class="card-img-top p-2" src=<%=base_list[i]["img"]%>
+                            alt=<%=base_list[i]["name"]%> style="max-width: 400px;">
+                        </a>
+                    </p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <script>
+        const mySiema = new Siema({
+            easing:'ease-out',
+            loop:true,
+        });
+        </script>
+</body>
+</html>

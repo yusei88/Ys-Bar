@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<%- include("./_head",{title:title}) %>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<body style="padding-top:4.5rem;">
+    <%- include("_header") %>
+    <div class="container">
+        <ul id="message"></ul>
+    </div>
+    <script>
+        var socket = io();
+        socket.on('message',function(msg){
+          console.log("sended!" + msg);
+          $('#message').append($('<li>').text(msg));
+        });
+    </script>    
+</body>
+</html>
